@@ -1,0 +1,51 @@
+import styled from "styled-components";
+
+export const Container = styled.div`
+  width: 100%;
+  height: 150vh;
+
+  background-color: var(--Grey-4);
+
+  header {
+    margin: 58px auto;
+    padding: 0 12px;
+
+    width: 100%;
+    max-width: 320px;
+
+    display: flex;
+    justify-content: space-between;
+  }
+
+  main {
+    margin: 0 auto;
+    padding: 0 12px;
+
+    width: 100%;
+    max-width: 320px;
+    height: 710px;
+
+    display: flex;
+    flex-direction: column;
+
+    background-color: var(--Grey-3);
+    box-shadow: 0px 3.19812px 31.9812px -7.99531px rgba(0, 0, 0, 0.25);
+    border-radius: 3.19812px;
+
+    div {
+      align-items: center;
+
+      padding: 22px 15px 22px;
+      gap: 18px;
+    }
+
+    p {
+      font-family: "Inter";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 10px;
+      line-height: 18px;
+      color: var(--Grey-1);
+    }
+  }
+`;
