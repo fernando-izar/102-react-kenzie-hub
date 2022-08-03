@@ -32,5 +32,9 @@ export const Container = styled.div`
         width: 100%;
       }
     }
+
+    .Toastify__toast {
+      width: 20%;
+    }
   }
 `;

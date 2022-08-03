@@ -43,8 +43,7 @@ ul, ol, li {
     list-style: none;
 }
 
-section, aside, div {
-    width: 100%;
+div {
     display: flex;
     flex-direction: column;
 }

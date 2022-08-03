@@ -1,19 +1,28 @@
 import { Container } from "./style";
-import { Title3 } from "../../styles/typography";
+import { Headline, Title3 } from "../../styles/typography";
 import { HeaderButton } from "../../styles/buttons";
+import { Link, useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 import Logo from "../../assets/Logo.svg";
 
-const Dashboard = () => {
+const Dashboard = ({ user }) => {
+  const navigate = useNavigate();
+
+  const logout = () => {
+    localStorage.clear();
+    navigate("/login");
+  };
+
   return (
     <Container>
       <header>
         <img src={Logo} alt="Logo" />
-        <HeaderButton>Voltar</HeaderButton>
+        <HeaderButton onClick={logout}>Sair</HeaderButton>
       </header>
       <main>
-        <Title3>Olá, Fernando</Title3>
-        <p>Primeiro módulo - introdução ao Frontent</p>
+        <Title3>Olá, {user.data.user.name}</Title3>
+        <Headline>{user.data.user.course_module}</Headline>
       </main>
     </Container>
   );

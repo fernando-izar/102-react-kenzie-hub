@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Container } from "./style";
 import { Title3 } from "../../styles/typography";
@@ -6,7 +7,7 @@ import Form from "../../components/FormRegister";
 
 import Logo from "../../assets/Logo.svg";
 
-const RegisterPage = () => {
+const RegisterPage = ({ data, setData }) => {
   return (
     <Container>
       <header>
@@ -20,7 +21,7 @@ const RegisterPage = () => {
           <Title3>Crie sua conta</Title3>
           <p>Rápido e grátis, vamos nessa</p>
         </div>
-        <Form />
+        <Form data="data" setData="setData" />
       </main>
     </Container>
   );

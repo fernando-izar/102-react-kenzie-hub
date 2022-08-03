@@ -1,10 +1,11 @@
+import { useState, useEffect } from "react";
 import { Container } from "./style";
 import { Title3 } from "../../styles/typography";
 import Form from "../../components/FormLogin";
 
 import Logo from "../../assets/Logo.svg";
 
-const LoginPage = () => {
+const LoginPage = ({ setUser }) => {
   return (
     <Container>
       <header>
@@ -14,7 +15,7 @@ const LoginPage = () => {
         <div className="TitleLogin">
           <Title3>Login</Title3>
         </div>
-        <Form></Form>
+        <Form setUser={setUser}></Form>
       </main>
     </Container>
   );
