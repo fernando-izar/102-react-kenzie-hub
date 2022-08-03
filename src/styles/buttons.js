@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 
 export const MainButton = styled.button`
-  /* width: 260px; */
+  width: 100%;
   height: 38.5px;
   @media (min-width: 490px) {
     /* width: 324px; */

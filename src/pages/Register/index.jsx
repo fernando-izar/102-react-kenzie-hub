@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Container } from "./style";
 import { Title3 } from "../../styles/typography";
 import { HeaderButton } from "../../styles/buttons";
@@ -10,7 +11,9 @@ const RegisterPage = () => {
     <Container>
       <header>
         <img src={Logo} alt="Logo" />
-        <HeaderButton>Voltar</HeaderButton>
+        <Link to="/login">
+          <HeaderButton>Voltar</HeaderButton>
+        </Link>
       </header>
       <main>
         <div>

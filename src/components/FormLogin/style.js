@@ -28,6 +28,9 @@ export const Container = styled.div`
         line-height: 18px;
         color: var(--Grey-1);
       }
+      a {
+        width: 100%;
+      }
     }
   }
 `;

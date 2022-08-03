@@ -49,6 +49,10 @@ section, aside, div {
     flex-direction: column;
 }
 
+a, u {
+    text-decoration: none;
+}
+
 
 
 `;

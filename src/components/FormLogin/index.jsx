@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Container } from "./style";
 import { Label, Input } from "../../styles/inputs";
 import { MainButton } from "../../styles/buttons";
@@ -13,7 +14,9 @@ const FormLogin = () => {
         <MainButton buttonType="primary">Entrar</MainButton>
         <div>
           <p>Ainda não posui uma conta?</p>
-          <MainButton buttonType="disable">Cadastre-se</MainButton>
+          <Link to="/register">
+            <MainButton buttonType="disable">Cadastre-se</MainButton>
+          </Link>
         </div>
       </form>
     </Container>
