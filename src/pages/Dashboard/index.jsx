@@ -1,5 +1,5 @@
 import { Container } from "./style";
-import { Headline, Title3 } from "../../styles/typography";
+import { Title1, Title3, Headline } from "../../styles/typography";
 import { HeaderButton } from "../../styles/buttons";
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
@@ -37,27 +37,32 @@ const Dashboard = ({ user }) => {
         </header>
       </div>
 
-      <div className="div-main">
-        <main>
-          {userLoged ? (
-            <>
+      {userLoged ? (
+        <>
+          <div className="div-main">
+            <main>
               <Title3>Olá, {userLoged.data.name}</Title3>
               <Headline>{userLoged.data.course_module}</Headline>
-            </>
-          ) : (
-            <p>...loading</p>
-          )}
-        </main>
-      </div>
+            </main>
+          </div>
 
-      <div className="container-techs">
-        <div className="techs">
-          <Headline>Que pena! Estamos em desenvolvimento :(</Headline>
-          <Headline>
-            Nossa aplicação está em desenvolvimento, em breve teremos novidades
-          </Headline>
+          <div className="container-techs">
+            <div className="techs">
+              <Headline>Que pena! Estamos em desenvolvimento :(</Headline>
+              <Headline>
+                Nossa aplicação está em desenvolvimento, em breve teremos
+                novidades
+              </Headline>
+            </div>
+          </div>
+        </>
+      ) : (
+        <div className="div-main">
+          <main>
+            <Title1>...Loading</Title1>
+          </main>
         </div>
-      </div>
+      )}
     </Container>
   );
 };

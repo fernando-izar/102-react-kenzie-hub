@@ -15,16 +15,6 @@ import { MainButton } from "../../styles/buttons";
 const FormRegister = () => {
   const navigate = useNavigate();
 
-  const notify = () =>
-    toast("🦄 Wow so easy!", {
-      position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-    });
   const formSchema = yup.object().shape({
     name: yup.string().required("Nome obrigatório"),
     email: yup.string().email().required("Email obrigatório"),
@@ -32,8 +22,8 @@ const FormRegister = () => {
       .string()
       .required("Senha obrigatória")
       .matches(
-        /^(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z]).{4,}$/gm,
-        "Deve conter e dígitos, ao menos uma maiúscula, uma minúscula, um número e um caracter especial"
+        /^(?=.*[A-Za-z])(?=.*[!@#$&*])(?=.*[0-9]).{8,}$/gm,
+        "Mínimo de 8 digitos com, ao menos, uma letra, um número e um símbolo(!@#$&%*)"
       ),
     pwdCheck: yup
       .string()
@@ -47,6 +37,7 @@ const FormRegister = () => {
     handleSubmit,
     formState: { errors },
   } = useForm({ resolver: yupResolver(formSchema) });
+
   const onSubmitFunction = ({
     email,
     password,
@@ -63,7 +54,7 @@ const FormRegister = () => {
         console.log(res);
         toast.success("Sucess!", {
           position: "top-right",
-          autoClose: 2000,
+          autoClose: 3000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
@@ -71,12 +62,11 @@ const FormRegister = () => {
           progress: undefined,
         });
         navigate("/login");
-        /*redirecionar para página de login */
       })
       .catch((err) => {
-        toast.error("Erro!", {
+        toast.error(`${err.response.data.message}!`, {
           position: "top-right",
-          autoClose: 2000,
+          autoClose: 3000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
