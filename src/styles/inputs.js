@@ -16,7 +16,7 @@ export const Input = styled.input`
   flex-direction: row;
   align-items: center;
 
-  padding: 0px 16.2426px;
+  padding: 12px 16.2426px;
   gap: 10.15px;
 
   height: 38px;

@@ -24,7 +24,7 @@ const FormLogin = ({ setUser }) => {
       })
       .then((res) => {
         toast.success("Sucess!", {
-          position: "top-center",
+          position: "top-right",
           autoClose: 2000,
           hideProgressBar: false,
           closeOnClick: true,
@@ -38,7 +38,7 @@ const FormLogin = ({ setUser }) => {
       .catch((err) => {
         console.log(err.response.data.message[0]);
         toast.error("Error! Email ou senha incorretos!", {
-          position: "top-left",
+          position: "top-right",
           autoClose: 2000,
           hideProgressBar: false,
           closeOnClick: true,

@@ -110,7 +110,7 @@ const FormRegister = () => {
         <Label>Senha</Label>
         <Input
           {...register("password")}
-          type="text"
+          type="password"
           placeholder="Digite aqui sua senha"
         />
         <HelperText>{errors.password?.message}</HelperText>
@@ -118,7 +118,7 @@ const FormRegister = () => {
         <Label>Confirmar Senha</Label>
         <Input
           {...register("pwdCheck")}
-          type="text"
+          type="password"
           placeholder="Digite novamente sua senha"
         />
         <HelperText>{errors.pwdCheck?.message}</HelperText>

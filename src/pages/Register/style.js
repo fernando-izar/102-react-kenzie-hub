@@ -12,6 +12,9 @@ export const Container = styled.div`
 
     width: 100%;
     max-width: 320px;
+    @media (min-width: 490px) {
+      max-width: 400px;
+    }
 
     display: flex;
     justify-content: space-between;
@@ -23,7 +26,9 @@ export const Container = styled.div`
 
     width: 100%;
     max-width: 320px;
-    height: 710px;
+    @media (min-width: 490px) {
+      max-width: 400px;
+    }
 
     display: flex;
     flex-direction: column;

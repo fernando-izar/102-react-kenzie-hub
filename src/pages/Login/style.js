@@ -3,8 +3,6 @@ import styled from "styled-components";
 export const Container = styled.div`
   width: 100%;
   height: 100vh;
-  /* display: flex;
-  flex-direction: column; */
 
   background-color: var(--Grey-4);
 
@@ -13,7 +11,10 @@ export const Container = styled.div`
     padding: 0 12px;
 
     width: 100%;
-    max-width: 320px;
+    max-width: 290px;
+    @media (min-width: 490px) {
+      max-width: 350px;
+    }
 
     display: flex;
     justify-content: center;
@@ -33,8 +34,13 @@ export const Container = styled.div`
     padding: 0 12px;
 
     width: 100%;
-    max-width: 320px;
+    max-width: 290px;
     height: 403px;
+
+    @media (min-width: 490px) {
+      max-width: 350px;
+      height: 502px;
+    }
 
     display: flex;
     flex-direction: column;
