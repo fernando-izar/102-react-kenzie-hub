@@ -1,16 +1,25 @@
-import { Link, useNavigate } from "react-router-dom";
-import { Container } from "./style";
-import { Label, Input, HelperText } from "../../styles/inputs";
-import { MainButton } from "../../styles/buttons";
-import { useForm } from "react-hook-form";
-import { api } from "../../services/api";
-import { toast } from "react-toastify";
 import { useState } from "react";
-import * as yup from "yup";
+import { Link, useNavigate } from "react-router-dom";
+import { useForm } from "react-hook-form";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { BsEye, BsEyeSlash } from "react-icons/bs";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
+import * as yup from "yup";
+
+import { api } from "../../services/api";
+import { Container } from "./style";
+import { Label, InputTheme, HelperText } from "../../styles/inputs";
+import { MainButton } from "../../styles/buttons";
 
 const FormLogin = ({ setUser }) => {
+  const [isEyeOpen, setIsEyeOpen] = useState(false);
+
+  const handleEyeState = (e) => {
+    e.preventDefault();
+    setIsEyeOpen((oldState) => !oldState);
+  };
+
   const navigate = useNavigate();
 
   const formSchema = yup.object().shape({
@@ -64,18 +73,24 @@ const FormLogin = ({ setUser }) => {
     <Container>
       <form onSubmit={handleSubmit(onSubmitFunction)}>
         <Label>Email </Label>
-        <Input
+        <InputTheme
           {...register("email")}
           type="email"
           placeholder="Digite seu email"
         />
         <HelperText>{errors.email?.message}</HelperText>
         <Label>Senha </Label>
-        <Input
-          {...register("password")}
-          type="password"
-          placeholder="Digite sua senha"
-        />
+        <div className="eye-control">
+          <InputTheme
+            {...register("password")}
+            type={isEyeOpen ? "text" : "password"}
+            placeholder="Digite sua senha"
+          />
+          <button className="eye" onClick={handleEyeState}>
+            <BsEye style={{ display: isEyeOpen ? "flex" : "none" }} />
+            <BsEyeSlash style={{ display: isEyeOpen ? "none" : "flex" }} />
+          </button>
+        </div>
         <HelperText>{errors.password?.message}</HelperText>
         <MainButton buttonType="primary">Entrar</MainButton>
         <div>

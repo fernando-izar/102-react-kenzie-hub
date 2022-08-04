@@ -9,7 +9,7 @@ export const Label = styled.label`
   color: var(--Grey-0);
 `;
 
-export const Input = styled.input`
+export const InputTheme = styled.input`
   width: 100%;
   display: flex;
 

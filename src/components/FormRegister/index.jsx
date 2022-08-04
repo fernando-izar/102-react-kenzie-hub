@@ -1,15 +1,13 @@
-import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import "react-toastify/dist/ReactToastify.css";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-
+import "react-toastify/dist/ReactToastify.css";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { api } from "../../services/api";
 
+import { api } from "../../services/api";
 import { Container } from "./style";
-import { Label, Input, Select, HelperText } from "../../styles/inputs";
+import { Label, InputTheme, Select, HelperText } from "../../styles/inputs";
 import { MainButton } from "../../styles/buttons";
 
 const FormRegister = () => {
@@ -82,7 +80,7 @@ const FormRegister = () => {
     <Container>
       <form onSubmit={handleSubmit(onSubmitFunction)}>
         <Label>Nome</Label>
-        <Input
+        <InputTheme
           {...register("name")}
           type="text"
           placeholder="Digite aqui seu nome"
@@ -90,7 +88,7 @@ const FormRegister = () => {
         <HelperText>{errors.name?.message}</HelperText>
 
         <Label>Email</Label>
-        <Input
+        <InputTheme
           {...register("email")}
           type="email"
           placeholder="Digite aqui seu email"
@@ -98,7 +96,7 @@ const FormRegister = () => {
         <HelperText>{errors.email?.message}</HelperText>
 
         <Label>Senha</Label>
-        <Input
+        <InputTheme
           {...register("password")}
           type="password"
           placeholder="Digite aqui sua senha"
@@ -106,7 +104,7 @@ const FormRegister = () => {
         <HelperText>{errors.password?.message}</HelperText>
 
         <Label>Confirmar Senha</Label>
-        <Input
+        <InputTheme
           {...register("pwdCheck")}
           type="password"
           placeholder="Digite novamente sua senha"
@@ -114,11 +112,15 @@ const FormRegister = () => {
         <HelperText>{errors.pwdCheck?.message}</HelperText>
 
         <Label>Bio</Label>
-        <Input {...register("bio")} type="text" placeholder="Fale sobre você" />
+        <InputTheme
+          {...register("bio")}
+          type="text"
+          placeholder="Fale sobre você"
+        />
         <HelperText>{errors.bio?.message}</HelperText>
 
         <Label>Contato</Label>
-        <Input
+        <InputTheme
           {...register("contact")}
           type="text"
           placeholder="Opção de contato"

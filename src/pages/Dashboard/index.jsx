@@ -1,9 +1,10 @@
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+
+import { api } from "../../services/api";
 import { Container } from "./style";
 import { Title1, Title3, Headline } from "../../styles/typography";
 import { HeaderButton } from "../../styles/buttons";
-import { Link, useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
-import { api } from "../../services/api";
 
 import Logo from "../../assets/Logo.svg";
 

@@ -14,6 +14,18 @@ export const Container = styled.div`
     padding-bottom: 25px;
     gap: 10px;
 
+    .eye-control {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      .eye {
+        margin-left: -50px;
+        background-color: transparent;
+        border: none;
+      }
+    }
+
     div {
       gap: 12px;
 
@@ -27,9 +39,6 @@ export const Container = styled.div`
         font-size: 10px;
         line-height: 18px;
         color: var(--Grey-1);
-      }
-      a {
-        width: 100%;
       }
     }
 

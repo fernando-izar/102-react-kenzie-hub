@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import { Container } from "./style";
 import { Title3 } from "../../styles/typography";
 import Form from "../../components/FormLogin";
