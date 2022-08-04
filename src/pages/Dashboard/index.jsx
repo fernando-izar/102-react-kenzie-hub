@@ -20,7 +20,6 @@ const Dashboard = ({ user }) => {
 
   useEffect(() => {
     const userId = localStorage.getItem("@USERID");
-    console.log(userId);
     api
       .get(`/users/${userId}`)
       .then((res) => {

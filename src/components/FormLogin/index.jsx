@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { BsEye, BsEyeSlash } from "react-icons/bs";
+import { BsFillEyeFill, BsFillEyeSlashFill } from "react-icons/bs";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 
@@ -30,15 +30,28 @@ const FormLogin = ({ setUser }) => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
-  } = useForm({ resolver: yupResolver(formSchema) });
+    reset,
+    formState,
+    formState: { errors, isSubmitSuccessful },
+  } = useForm(
+    { defaultValues: { email: "", password: "" } },
+    { resolver: yupResolver(formSchema) }
+  );
+
+  useEffect(() => {
+    if (formState.isSubmitSuccessful) {
+      reset({
+        email: "",
+        password: "",
+      });
+    }
+  }, [formState, isSubmitSuccessful, reset]);
 
   const onSubmitFunction = (data) => {
     api
       .post("/sessions", data)
       .then((res) => {
         setUser(res);
-        console.log(res.data.user.name);
         localStorage.setItem("@TOKEN", res.data.token);
         localStorage.setItem("@USERID", res.data.user.id);
         return res;
@@ -79,6 +92,7 @@ const FormLogin = ({ setUser }) => {
           placeholder="Digite seu email"
         />
         <HelperText>{errors.email?.message}</HelperText>
+
         <Label>Senha </Label>
         <div className="eye-control">
           <InputTheme
@@ -86,15 +100,25 @@ const FormLogin = ({ setUser }) => {
             type={isEyeOpen ? "text" : "password"}
             placeholder="Digite sua senha"
           />
-          <button className="eye" onClick={handleEyeState}>
-            <BsEye style={{ display: isEyeOpen ? "flex" : "none" }} />
-            <BsEyeSlash style={{ display: isEyeOpen ? "none" : "flex" }} />
+          <button
+            style={{ color: "#fffff" }}
+            className="eye"
+            onClick={handleEyeState}
+          >
+            <BsFillEyeFill
+              style={{ display: isEyeOpen ? "flex" : "none", color: "#868E96" }}
+            />
+            <BsFillEyeSlashFill
+              style={{ display: isEyeOpen ? "none" : "flex", color: "#868E96" }}
+            />
           </button>
         </div>
         <HelperText>{errors.password?.message}</HelperText>
+
         <MainButton buttonType="primary">Entrar</MainButton>
         <div>
           <p>Ainda não posui uma conta?</p>
+
           <Link to="/register">
             <MainButton type="submit" buttonType="disable">
               Cadastre-se

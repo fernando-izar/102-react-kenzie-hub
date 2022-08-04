@@ -10,6 +10,20 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     gap: 13px;
+
+    .eye-control {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      padding: 0;
+
+      .eye {
+        margin-left: -50px;
+        background-color: transparent;
+        border: none;
+      }
+    }
   }
 
   option {

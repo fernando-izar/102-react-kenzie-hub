@@ -1,9 +1,11 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { BsFillEyeFill, BsFillEyeSlashFill } from "react-icons/bs";
 
 import { api } from "../../services/api";
 import { Container } from "./style";
@@ -11,6 +13,13 @@ import { Label, InputTheme, Select, HelperText } from "../../styles/inputs";
 import { MainButton } from "../../styles/buttons";
 
 const FormRegister = () => {
+  const [isEyeOpen, setIsEyeOpen] = useState(false);
+
+  const handleEyeState = (e) => {
+    e.preventDefault();
+    setIsEyeOpen((oldState) => !oldState);
+  };
+
   const navigate = useNavigate();
 
   const formSchema = yup.object().shape({
@@ -45,11 +54,9 @@ const FormRegister = () => {
     course_module,
   }) => {
     const data = { email, password, name, bio, contact, course_module };
-    console.log(data);
     api
       .post("/users", data)
       .then((res) => {
-        console.log(res);
         toast.success("Sucess!", {
           position: "top-right",
           autoClose: 3000,
@@ -96,11 +103,26 @@ const FormRegister = () => {
         <HelperText>{errors.email?.message}</HelperText>
 
         <Label>Senha</Label>
-        <InputTheme
-          {...register("password")}
-          type="password"
-          placeholder="Digite aqui sua senha"
-        />
+        <div className="eye-control">
+          <InputTheme
+            {...register("password")}
+            type={isEyeOpen ? "text" : "password"}
+            placeholder="Digite aqui sua senha"
+          />
+          <button
+            style={{ color: "#fffff" }}
+            className="eye"
+            onClick={handleEyeState}
+          >
+            <BsFillEyeFill
+              style={{ display: isEyeOpen ? "flex" : "none", color: "#868E96" }}
+            />
+            <BsFillEyeSlashFill
+              style={{ display: isEyeOpen ? "none" : "flex", color: "#868E96" }}
+            />
+          </button>
+        </div>
+
         <HelperText>{errors.password?.message}</HelperText>
 
         <Label>Confirmar Senha</Label>

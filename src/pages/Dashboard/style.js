@@ -9,20 +9,23 @@ export const Container = styled.div`
   .div-header {
     border: 1px solid var(--Grey-3);
     header {
-      margin: 58px 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+
+      @media (min-width: 250px) {
+        margin: 58px 0;
+        padding: 0 12px;
+
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+      }
       @media (min-width: 640px) {
         margin: 58px 20vw;
-      }
-      padding: 0 12px;
-
-      /* width: 100%; */
-      /* max-width: 320px; */
-      @media (min-width: 640px) {
         max-width: 800px;
       }
-
-      display: flex;
-      justify-content: space-between;
     }
   }
 

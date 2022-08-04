@@ -4,7 +4,6 @@ export const MainButton = styled.button`
   width: 100%;
   height: 38.5px;
   @media (min-width: 490px) {
-    /* width: 324px; */
     height: 48px;
   }
 
@@ -39,6 +38,10 @@ export const MainButton = styled.button`
         return css`
           background: var(--Color-primary-Negative);
           border-color: var(--Color-primary-Negative);
+
+          :hover {
+            opacity: 0.5;
+          }
         `;
       case "disable":
         return css`
@@ -46,6 +49,7 @@ export const MainButton = styled.button`
           border-color: var(--Grey-1);
 
           :hover {
+            opacity: 0.5;
             background: var(--Grey-2);
             border-color: var(--Grey-2);
           }
@@ -61,7 +65,7 @@ export const HeaderButton = styled.button`
   width: 80px;
   height: 32px;
   @media (min-width: 490px) {
-    width: 68px;
+    /* width: 68px; */
     height: 40px;
   }
 
@@ -73,9 +77,9 @@ export const HeaderButton = styled.button`
   gap: 10.15px;
   border-radius: 4px;
   background-color: var(--Grey-3);
-  @media (min-width: 400px) {
+  /* @media (min-width: 400px) {
     background-color: var(--Grey-2);
-  }
+  } */
 
   font-family: "Inter";
   font-style: normal;
@@ -83,4 +87,9 @@ export const HeaderButton = styled.button`
   font-size: 12px;
   line-height: 28px;
   color: var(--Grey-0);
+
+  :hover {
+    opacity: 0.5;
+    background-color: var(--Grey-2);
+  }
 `;

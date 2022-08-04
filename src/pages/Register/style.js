@@ -10,14 +10,23 @@ export const Container = styled.div`
     margin: 58px auto;
     padding: 0 12px;
 
-    width: 100%;
-    max-width: 320px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+
+    @media (min-width: 250px) {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
+      width: 100%;
+      max-width: 320px;
+    }
+
     @media (min-width: 490px) {
       max-width: 400px;
     }
-
-    display: flex;
-    justify-content: space-between;
   }
 
   main {
