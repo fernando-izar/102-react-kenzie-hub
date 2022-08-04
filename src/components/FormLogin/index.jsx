@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
@@ -45,7 +45,7 @@ const FormLogin = ({ setUser }) => {
         password: "",
       });
     }
-  }, [formState, isSubmitSuccessful, reset]);
+  }, [formState, reset]);
 
   const onSubmitFunction = (data) => {
     api

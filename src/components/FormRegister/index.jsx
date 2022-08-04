@@ -79,7 +79,6 @@ const FormRegister = () => {
           progress: undefined,
         });
         console.log(err);
-        //mostrar toast de falha no cadastro
       });
   };
 
